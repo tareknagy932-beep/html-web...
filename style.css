@@ -1,0 +1,261 @@
+/* استيراد خط Roboto من جوجل */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* CSS Reset وإعدادات أساسية */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* تحديد حجم الخط الأساسي لـ 10 بكسل لتسهيل استخدام rem */
+    font-size: 10px; 
+}
+
+body {
+    /* تحديد الخط الافتراضي للموقع */
+    font-family: 'Roboto', 'Arial', sans-serif;
+    direction: ltr; /* نجعل اتجاه الصفحة من اليسار لليمين ليطابق يوتيوب */
+}
+
+/* تنسيق الهيدر (الشريط العلوي) */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 56px;
+    padding: 0 16px;
+    background-color: white;
+    /* تثبيت الهيدر في الأعلى */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+/* تنسيق القسم الأيسر (الأيقونة والشعار) */
+.left-section {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.left-section img {
+    height: 20px; /* تعديل ارتفاع الشعار المؤقت */
+    margin-left: 16px; 
+}
+
+/* تنسيق القسم الأوسط (البحث) */
+.middle-section {
+    display: flex;
+    align-items: center;
+    margin: 0 40px;
+    flex: 1; /* جعل القسم الأوسط يأخذ المساحة المتاحة */
+    max-width: 730px; /* تحديد أقصى عرض للبحث */
+}
+
+.middle-section form {
+    display: flex;
+    height: 40px;
+    width: 100%;
+}
+
+.middle-section input {
+    width: 100%;
+    border-radius: 2px 0 0 2px;
+    font-size: 1.6rem; 
+    padding: 12px;
+    border: 1px solid #d3d3d3;
+    border-right: none;
+}
+
+.middle-section button {
+    width: 64px;
+    border: 1px solid #d3d3d3;
+    border-radius: 0 2px 2px 0;
+    background-color: #f8f8f8;
+    padding-top: 4px;
+    cursor: pointer;
+}
+
+.middle-section button:hover {
+    background-color: #f0f0f0;
+    border-color: #c6c6c6;
+}
+
+.mic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+/* تنسيق القسم الأيمن (الأيقونات) */
+.right-section {
+    display: flex;
+    align-items: center;
+}
+
+.right-section a {
+    color: black;
+    text-decoration: none;
+    margin-left: 18px; /* تغيير الهامش ليتناسب مع LTR */
+}
+
+/* تنسيق منطقة المحتوى (القائمة الجانبية والفيديوهات) */
+.content-area {
+    height: calc(100vh - 56px); 
+    display: flex;
+    background-color: #f9f9f9;
+}
+
+/* تنسيق القائمة الجانبية */
+aside {
+    height: 100%;
+    width: 240px; /* تعديل العرض ليطابق التصميم الحديث */
+    background-color: white;
+    overflow-y: auto;
+    padding-top: 10px;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    padding: 10px 24px;
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.nav-link.active {
+    background-color: #e5e5e5;
+}
+
+.nav-link.active:hover {
+    background-color: #dcdcdc;
+}
+
+#active-span,
+.nav-link.active span {
+    font-weight: 500;
+}
+
+.nav-link span {
+    margin-left: 24px;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 400;
+    color: #030303;
+}
+
+hr {
+    height: 1px;
+    background-color: #e5e5e5;
+    border: none;
+    margin: 10px 0;
+}
+
+nav p {
+    font-size: 1.3rem;
+    color: #606060;
+    font-weight: 500;
+    padding: 8px 24px;
+    text-transform: uppercase;
+}
+
+.channel img {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+}
+
+/* تنسيق المحتوى الرئيسي (شبكة الفيديوهات) */
+main {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    padding: 24px;
+}
+
+.videos-container {
+    display: grid;
+    /* استخدام Grid لمرونة أفضل في توزيع الأعمدة */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px 16px; /* مسافات بين الصفوف والأعمدة */
+}
+
+.video {
+    cursor: pointer;
+}
+
+.thumbnail {
+    width: 100%;
+    aspect-ratio: 16 / 9; /* ضمان نسبة العرض إلى الارتفاع 16:9 */
+    margin-bottom: 12px;
+}
+
+.thumbnail img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* جعل الصورة تملأ الحاوية */
+    border-radius: 8px; /* تدوير حواف الصور المصغرة */
+}
+
+.video-details {
+    display: flex;
+}
+
+.creator-img img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 12px;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+}
+
+.title a {
+    text-decoration: none;
+}
+
+.video-title {
+    color: rgb(3, 3, 3);
+    font-size: 1.6rem;
+    font-weight: 500;
+    line-height: 2.2rem;
+    margin-bottom: 4px;
+    overflow: hidden;
+    /* تحديد عرض العنوان بسطرين فقط وإضافة "..." */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.video-creator,
+.video-details span {
+    color: #606060;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    font-weight: 400;
+}
+
+.video-creator:hover {
+    color: #030303;
+}
